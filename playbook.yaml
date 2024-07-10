@@ -1,0 +1,31 @@
+---
+# - name: Install Kubernetes
+#  hosts: HOME
+#  roles:
+#  - kubeadm
+
+# - name: Reset cluster
+#   hosts: ALLNODES
+#   roles:
+#   - Resetcluster
+
+# - name: Test Jenkins
+#   hosts: localhost
+#   roles:
+#   - Promote Vault HA
+
+# - name: Migate Images
+#   hosts: localhost
+#   become: true
+#   roles:
+#   - Migate_images
+
+- name: Script PM
+  hosts: "{{ host_vm }}"
+  roles:
+    - "{{ task_role }}"
+
+# - name: Script PM kubernetes
+#   hosts: k8smaster1
+#   roles:
+#     - script_pm_kubernetes
