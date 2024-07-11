@@ -1,10 +1,12 @@
 ---
+# - name: SSH Key
+#   ansible.builtin.expect:
+#     command: "ssh-copy-id root@{{ item }}"
+#     responses:
+#       "Are you sure you want to continue connecting (yes/no/[fingerprint])?": "yes"
+#       "root@{{ item }}'s password:": "{{ wtf }}"
 - name: SSH Key
-  ansible.builtin.expect:
-    command: "ssh-copy-id root@{{ item }}"
-    responses:
-      "Are you sure you want to continue connecting (yes/no/[fingerprint])?": "yes"
-      "root@{{ item }}'s password:": "{{ wtf }}"
+  ansible.builtin.command: "sshpass -p {{ wtf }} ssh-copy-id root@{{ item }}"
   loop:
     - 10.99.71.43
     - 10.99.71.44
