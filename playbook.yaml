@@ -1,6 +1,6 @@
 ---
 - name: Script PM
-  hosts: localhost
+  hosts: DR
   become: true
   roles:
-    - ssh_copy
+    - script_pm
